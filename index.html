@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootswatch-3.3.6/sandstone/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alfodoo.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -76,7 +77,11 @@
 <li class="toctree-l1"><a class="reference internal" href="project/roadmap.html">Roadmap</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="guides/concepts.html">Alfodoo Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guides/code_overview.html">Code Overview</a></li>
 </ul>
 </ul>
@@ -93,12 +98,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Alfodoo</a><ul>
 <li><a class="reference internal" href="#core-features">Core Features</a></li>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li><a class="reference internal" href="#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#overview-manage-the-documents-in-odoo">Overview: Manage the documents in Odoo</a></li>
 <li><a class="reference internal" href="#project">Project</a></li>
 <li><a class="reference internal" href="#developer-s-guide">Developer&#8217;s guide</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -159,7 +159,9 @@ manage their documents in an external Document Management System through
 a seamless integration.</p>
 <p>The development of Alfodoo has been founded by <a class="reference external" href="http://www.acsone.eu">ACSONE SA/NV</a>.</p>
 <p><em>Learn how to</em> <a class="reference internal" href="project/contribute.html#contribute"><span class="std std-ref">Contribute</span></a></p>
-<div class="section" id="core-features">
+<div style="margin-top:10px;">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/TK49kl0Viyk" frameborder="0" allowfullscreen></iframe>
+</div><div class="section" id="core-features">
 <h2>Core Features<a class="headerlink" href="#core-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>100% Open Source</strong> (<a class="reference external" href="http://www.gnu.org/licenses/agpl-3.0.html">AGPL version 3</a>): the full <a class="reference external" href="https://github.com/acsone/alfodoo">source code is available
@@ -170,97 +172,73 @@ on GitHub</a></li>
 <li>See a <a class="reference internal" href="guides/code_overview.html#code-overview"><span class="std std-ref">Code Overview</span></a> with examples of code</li>
 </ul>
 </div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="dependencies">
-<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
-<p>The Alfodoo framework requires the following:</p>
-<ul>
-<li><p class="first">The Odoo <strong>cmis</strong> addon: The Odoo  cmis addon provides the bases for Odoo
-modules implementing different integration scenario with a CMIS server. It allows
-you to configure a CMIS backend in Odoo and provides mixins models to inherit
-to add to Odoo objects the abilities to be linked/stored into a CMIS Backend.
-At the time of writing <em>Alfodoo</em> only supports the branch <em>9.0-cmis-enhanced</em>
-available into the <a class="reference external" href="https://github.com/acsone/connector-cmis/tree/9.0-cmis-enhanced">fork of ACSONE</a> of the OCA&#8217;s <a class="reference external" href="https://github.com/OCA/connector-cmis">connector-cmis</a> repository and
-currently under <a class="reference external" href="https://github.com/OCA/connector-cmis/pull/15">review</a>.</p>
-</li>
-<li><p class="first"><a class="reference external" href="http://chemistry.apache.org/python/cmislib.html">cmislib</a>  the Apache Chemistry CMIS client library for Python: To be compliant
-with the latest version of CMIS (1.1), the connector use the latest version of the
-python cmislib library not yet released at this stage. The lib can be installed with:</p>
-<blockquote>
-<div><div class="highlight-shell"><div class="highlight"><pre><span></span>pip install git+ssh://git@github.com/lmignon/python-cmislib.git@6.0.dev#egg<span class="o">=</span>cmislib
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-<li><p class="first">If you plan to use the viewer extension for Alfresco <strong>&#8216;web_cmis_viewer_alf&#8217;</strong>
-you also need the <strong>cmis_alf</strong> addon. As for the <strong>cmis</strong> addon, this one is
-available into a <a class="reference external" href="https://github.com/acsone/connector-cmis/tree/9.0-cmis-alf">dedicated branch of the fork of ACSONE</a> of the OCA&#8217;s
-<a class="reference external" href="https://github.com/OCA/connector-cmis">connector-cmis</a> repository</p>
-</li>
+<div class="section" id="overview-manage-the-documents-in-odoo">
+<h2>Overview: Manage the documents in Odoo<a class="headerlink" href="#overview-manage-the-documents-in-odoo" title="Permalink to this headline">¶</a></h2>
+<p>Visually the main part of the functionality is accessed through a &#8220;Document tab&#8221; configurable on each Odoo model providing a &#8220;real-time&#8221; view on the Alfresco content.</p>
+<p>From the user point of view, the Document tab gives a direct access to the items (documents lists, sub-folders, …) linked to the Odoo object and contained in the linked Alfresco folder.</p>
+<p>The first action is to let the user creates manually  (means &#8220;only when needed&#8221;) the linked folder in Alfresco</p>
+<img alt="_images/cmis_crm_claim_empty.png" src="_images/cmis_crm_claim_empty.png" />
+<p>Then the Document tab shows a global menu providing the following functionality:</p>
+<table class="table">
+  <tr>
+      <td> <span class="btn-odoo glyphicon glyphicon-refresh" aria-hidden="true"></span></td><td><strong>Refresh content table:</strong> This option refreshes the folder content</td>
+  </tr>
+  <tr>
+      <td> <span class="btn-odoo glyphicon glyphicon-folder-close" aria-hidden="true"></span></td><td><strong>Create folder:</strong> A (sub-)folder is created in the current folder. The user gives a name for the folder and selects "Create"</td>
+  </tr>
+  <tr>
+      <td> <span class="btn-odoo glyphicon glyphicon-file" aria-hidden="true"></span></td><td><strong>Create document:</strong> Upload a document in the current folder. The user selects a file and click on "Create" to upload the document</td>
+  </tr>
+  <tr>
+      <td> <div class="btn-odoo alf-ico"  aria-hidden="true"></div></span></td><td><strong>Show in Alfresco:</strong> This option opens Alfresco Share and shows the folder details page</td>
+  </tr>
+</table><p>In the content table, the User can see the documents and folders list.</p>
+<img alt="_images/cmis_crm_claim_new_folder.png" src="_images/cmis_crm_claim_new_folder.png" />
+<p>The following information is displayed for each item:</p>
+<ul class="simple">
+<li>An icon used to hide or unhide the item details (folder or document Alfresco metadata: cm:folder, cm:content, cm:title)</li>
+<li>The item name</li>
+<li>The item description</li>
+<li>Last Modified date</li>
+<li>A contextual menu: the options list for the a folder item or for a document item</li>
 </ul>
-</div>
-<div class="section" id="enable-cors-in-alfresco-5-x">
-<h3>Enable CORS in Alfresco 5.x<a class="headerlink" href="#enable-cors-in-alfresco-5-x" title="Permalink to this headline">¶</a></h3>
-<p>The CMIS Viewer widget will be loaded from a different web server than the Alfresco
-Platform is running on. So we need to tell the Alfresco server that any request that
-comes in from this custom web client should be allowed access to the Content Repository.
-This is done by enabling CORS.</p>
-<p>To enable CORS in the Alfresco Platform do the following:</p>
-<p>Modify tomcat/conf/web.xml and add the following sections to allow requests from
-<a class="reference external" href="http://localhost:8069">http://localhost:8069</a>.
-When specifying the cors.allowOrigin URL make sure to use the URL that will be
-used by the web client.</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="c">&lt;!-- CORS Filter Begin --&gt;</span>
-<span class="nt">&lt;filter&gt;</span>
-    <span class="nt">&lt;filter-name&gt;</span>CORS<span class="nt">&lt;/filter-name&gt;</span>
-    <span class="nt">&lt;filter-class&gt;</span>org.apache.catalina.filters.CorsFilter<span class="nt">&lt;/filter-class&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-      <span class="nt">&lt;param-name&gt;</span>cors.allowed.origins<span class="nt">&lt;/param-name&gt;</span>
-      <span class="nt">&lt;param-value&gt;</span>http://localhost:8069,http://my-odoo-server-name.eu<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-      <span class="nt">&lt;param-name&gt;</span>cors.allowed.methods<span class="nt">&lt;/param-name&gt;</span>
-      <span class="nt">&lt;param-value&gt;</span>GET,POST,HEAD,OPTIONS,PUT,DELETE<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-      <span class="nt">&lt;param-name&gt;</span>cors.allowed.headers<span class="nt">&lt;/param-name&gt;</span>
-      <span class="nt">&lt;param-value&gt;</span>origin, authorization, x-file-size, x-file-name, content-type, accept, x-file-type, DNT, x-customheader ,keep-alive ,user-agent ,x-requested-with ,if-modified-since, cache-control,accept-ranges,content-encoding,content-length<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-      <span class="nt">&lt;param-name&gt;</span>cors.exposed.headers<span class="nt">&lt;/param-name&gt;</span>
-      <span class="nt">&lt;param-value&gt;</span>origin, authorization, x-file-size, x-file-name, content-type, accept, x-file-type, DNT, x-customheader ,keep-alive ,user-agent ,x-requested-with ,if-modified-since, cache-control,accept-ranges,content-encoding,content-length<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-      <span class="nt">&lt;param-name&gt;</span>cors.support.credentials<span class="nt">&lt;/param-name&gt;</span>
-      <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-      <span class="nt">&lt;param-name&gt;</span>cors.preflight.maxage<span class="nt">&lt;/param-name&gt;</span>
-      <span class="nt">&lt;param-value&gt;</span>3600<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
- <span class="nt">&lt;/filter&gt;</span>
- <span class="c">&lt;!-- CORS Filter End --&gt;</span>
-
- <span class="c">&lt;!-- CORS Filter Mappings Begin --&gt;</span>
- <span class="nt">&lt;filter-mapping&gt;</span>
-    <span class="nt">&lt;filter-name&gt;</span>CORS<span class="nt">&lt;/filter-name&gt;</span>
-    <span class="nt">&lt;url-pattern&gt;</span>/api/*<span class="nt">&lt;/url-pattern&gt;</span>
-    <span class="nt">&lt;url-pattern&gt;</span>/service/*<span class="nt">&lt;/url-pattern&gt;</span>
-    <span class="nt">&lt;url-pattern&gt;</span>/s/*<span class="nt">&lt;/url-pattern&gt;</span>
-    <span class="nt">&lt;url-pattern&gt;</span>/cmisbrowser/*<span class="nt">&lt;/url-pattern&gt;</span>
- <span class="nt">&lt;/filter-mapping&gt;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<div style="margin-top:10px;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/TK49kl0Viyk" frameborder="0" allowfullscreen></iframe>
-</div></div>
+<img alt="_images/cmis_crm_claim_doc_details.png" src="_images/cmis_crm_claim_doc_details.png" />
+<p>For a &#8220;Document&#8221; item, the following options are available:</p>
+<table class="table">
+  <tr>
+      <td> <span class="btn-odoo glyphicon glyphicon-download-alt" aria-hidden="true"></span></td>
+      <td colspan="2"><strong>Download:</strong> Download the document</td>
+  </tr>
+  <tr>
+      <td> <span class="btn-odoo glyphicon glyphicon-eye-open" aria-hidden="true"></span></td>
+      <td colspan="2"><strong>Preview:</strong> Preview the document</td>
+  </tr>
+  <tr>
+      <td> <span class="btn-odoo glyphicon glyphicon-align-justify" aria-hidden="true"></span></td>
+      <td colspan="2"><strong>More actions:</strong></td>
+  </tr>
+  <tr>
+      <td colspan="2">
+      <td style="padding-left:5em"><strong>View details:</strong> this option shows some documents metadata (Alfresco cm:content).</td>
+ </tr>
+ <tr>
+      <td colspan="2">
+      <td style="padding-left:5em"><strong>Update:</strong> with this option the user can upload a new document in the folder. In case the document is associated with the Alfresco versionnable aspect Alfresco, the document version number (major) is automatically incremented.</td>
+ </tr>
+ <tr>
+      <td colspan="2">
+      <td style="padding-left:5em"><strong>Delete:</strong> delete the document.</td>
+ </tr>
+  <tr>
+      <td> <div class="btn-odoo alf-ico"  aria-hidden="true"></div></span></td>
+      <td colspan="2"><strong>Show in Alfresco:</strong> This option opens Alfresco share and shows the document details page.</td>
+  </tr>
+</table></div>
 <div class="section" id="project">
 <h2>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h2>
+<p>The Alfodoo project has the objective to provide a collection of &#8216;addons&#8217; in order to integrate the odoo platform with a Document Management System supporting the CMIS V1.1 protocol.</p>
+<p>Currently, the project proposes integration between Odoo and the open-source ECM platform Alfresco.</p>
+<p>The aim is to offer to the odoo users a transparent and easy access to the documents stored in the appropriate location in Alfresco.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="project/contribute.html">Contribute</a></li>
@@ -275,7 +253,11 @@ used by the web client.</p>
 <h2>Developer&#8217;s guide<a class="headerlink" href="#developer-s-guide" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="guides/concepts.html">Alfodoo Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guides/code_overview.html">Code Overview</a></li>
 </ul>
 </div>
