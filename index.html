@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Alfodoo &mdash; Web CMIS Viewer  documentation</title>
+    <title>Alfodoo &#8212; Web CMIS Viewer  documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -80,9 +80,13 @@
 <li class="toctree-l1"><a class="reference internal" href="guides/install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/install.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/install.html#launch-odoo">Launch Odoo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/code_overview.html">Code Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/api_cmis_field.html">CMIS Field</a></li>
 </ul>
 </ul>
 </li>
@@ -100,7 +104,10 @@
 <li><a class="reference internal" href="#core-features">Core Features</a></li>
 <li><a class="reference internal" href="#overview-manage-the-documents-in-odoo">Overview: Manage the documents in Odoo</a></li>
 <li><a class="reference internal" href="#project">Project</a></li>
-<li><a class="reference internal" href="#developer-s-guide">Developer&#8217;s guide</a></li>
+<li><a class="reference internal" href="#developer-s-guide">Developer&#8217;s guide</a><ul>
+<li><a class="reference internal" href="#api-reference">API Reference</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -146,9 +153,9 @@
 <h1>Alfodoo<a class="headerlink" href="#alfodoo" title="Permalink to this headline">¶</a></h1>
 <p>Alfodoo is a set of <a class="reference external" href="https://github.com/acsone/alfodoo">addons</a> to seamless integrate an external Document
 Management System and <a class="reference external" href="http://www.odoo.com">Odoo</a>.</p>
-<p>Alfodoo provides a powerful widget (CMIS Viewer) and a set of addons for
-displaying and managing content from a CMIS container linked to an Odoo model.</p>
-<p>This Odoo widget has a modular and generic core providing functionality based
+<p>Alfodoo provides a new kind of field <em>CmisFolder</em> and its powerful widget <em>FieldCmisFolder</em>.
+Alfodoo is a set of addons for displaying and managing content from a CMIS container linked to an Odoo model.</p>
+<p>The Odoo widget has a modular and generic core providing functionality based
 on the CMIS V1.1 protocol. This core can be extended by additional modules
 in order to propose additional features or customizations proper to a specific
 CMIS container. At this stage, the existing customization is for the Alfresco Document
@@ -239,6 +246,13 @@ on GitHub</a></li>
 <p>The Alfodoo project has the objective to provide a collection of &#8216;addons&#8217; in order to integrate the odoo platform with a Document Management System supporting the CMIS V1.1 protocol.</p>
 <p>Currently, the project proposes integration between Odoo and the open-source ECM platform Alfresco.</p>
 <p>The aim is to offer to the odoo users a transparent and easy access to the documents stored in the appropriate location in Alfresco.</p>
+<p>Alfresco Enterprise Content Management System (from version 4.2) is supported.</p>
+<p>The code is structured in two parts:</p>
+<ul class="simple">
+<li>pure CMIS 1.1 compliant modules (cmis_field, cmis_web)</li>
+<li>Alfresco specific extension modules (cmis_alf, cmis_web_alf).</li>
+</ul>
+<p>It is therefore possible in principle to easily integrate Other CMIS compliants content management systems such as Nuxeo, Documentum, etc. This has not been tested yet.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="project/contribute.html">Contribute</a></li>
@@ -256,10 +270,19 @@ on GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guides/install.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/install.html#launch-odoo">Launch Odoo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guides/code_overview.html">Code Overview</a></li>
 </ul>
+</div>
+<div class="section" id="api-reference">
+<h3>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/api_cmis_field.html">CMIS Field</a></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -292,7 +315,7 @@ on GitHub</a></li>
     </p>
     <p>
         &copy; Copyright 2016,  ACSONE SA/NV.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.<br/>
     </p>
   </div>
 </footer>

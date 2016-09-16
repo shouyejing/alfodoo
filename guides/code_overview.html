@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Code Overview &mdash; Web CMIS Viewer  documentation</title>
+    <title>Code Overview &#8212; Web CMIS Viewer  documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -31,6 +31,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Web CMIS Viewer  documentation" href="../index.html" />
+    <link rel="next" title="CMIS Field" href="../api/api_cmis_field.html" />
     <link rel="prev" title="Install" href="install.html" />
 
 <meta charset='utf-8'>
@@ -80,9 +81,13 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#launch-odoo">Launch Odoo</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Code Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/api_cmis_field.html">CMIS Field</a></li>
 </ul>
 </ul>
 </li>
@@ -108,6 +113,10 @@
                 
   <li>
     <a href="install.html" title="Previous Chapter: Install"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Install</span>
+    </a>
+  </li>
+  <li>
+    <a href="../api/api_cmis_field.html" title="Next Chapter: CMIS Field"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">CMIS Field &raquo;</span>
     </a>
   </li>
               
@@ -142,11 +151,13 @@ link an instance of this model to a folder in a CMIS container.</p>
 <p>As an example, we&#8217;ll see the steps to extend the Customer Claim object
 to store the documents related to a claim into a CMIS container</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openerp</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">openerp.addons.cmis_field</span> <span class="kn">import</span> <span class="n">fields</span>
 
 
 <span class="k">class</span> <span class="nc">CrmClaim</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;crm.claim&#39;</span>
-    <span class="n">_inherit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crm.claim&#39;</span><span class="p">,</span> <span class="s1">&#39;cmis.folder&#39;</span><span class="p">]</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;crm.claim&#39;</span>
+
+    <span class="n">cmis_folder</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">CmisFolder</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
@@ -158,8 +169,7 @@ to store the documents related to a claim into a CMIS container</p>
         <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;arch&quot;</span> <span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;notebook</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;page</span> <span class="na">string=</span><span class="s">&quot;Documents&quot;</span> <span class="na">groups=</span><span class="s">&quot;base.group_user&quot;</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;cmis_objectid&quot;</span> <span class="na">readonly=</span><span class="s">&quot;1&quot;</span> <span class="na">widget=</span><span class="s">&quot;cmis_viewer&quot;</span><span class="nt">/&gt;</span>
-                    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;cmis_backend_id&quot;</span> <span class="na">readonly=</span><span class="s">&quot;1&quot;</span> <span class="na">invisible=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;cmis_folder&quot;</span><span class="nt">/&gt;</span>
                 <span class="nt">&lt;/page&gt;</span>
             <span class="nt">&lt;/notebook&gt;</span>
         <span class="nt">&lt;/field&gt;</span>
@@ -192,7 +202,7 @@ to store the documents related to a claim into a CMIS container</p>
     </p>
     <p>
         &copy; Copyright 2016,  ACSONE SA/NV.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.<br/>
     </p>
   </div>
 </footer>

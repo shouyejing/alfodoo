@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Roadmap &mdash; Web CMIS Viewer  documentation</title>
+    <title>Roadmap &#8212; Web CMIS Viewer  documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -81,9 +81,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/install.html">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guides/install.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/install.html#launch-odoo">Launch Odoo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/code_overview.html">Code Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/api_cmis_field.html">CMIS Field</a></li>
 </ul>
 </ul>
 </li>
@@ -150,9 +154,10 @@
 <li>Folder suppression: synchronization between the odoo record and the linked alfresco folder</li>
 <li>Some sort of document type management.</li>
 <li>Some sort of meta-data synchronization</li>
-<li>Some sort of cmis-link widget to link to a specific cmis document/version in an Odoo form</li>
+<li>A new field CmisDocument used to link to a specific CMIS document/version in an Odoo form (with its dedicated widget)</li>
 <li>Some kind of integration between Odoo e-mailing and Alfresco</li>
-<li>Fork/Replace cmislib. cmislib is a library managed by Apache Chemistry. Despite several attempts to contribute (<a class="reference external" href="https://issues.apache.org/jira/browse/CMIS-972">https://issues.apache.org/jira/browse/CMIS-972</a>, <a class="reference external" href="https://issues.apache.org/jira/browse/CMIS-979">https://issues.apache.org/jira/browse/CMIS-979</a>, <a class="reference external" href="https://issues.apache.org/jira/browse/CMIS-971">https://issues.apache.org/jira/browse/CMIS-971</a>), it seems very difficult to make it evolve even if the problems are blockers. This situation forces us to use our own fork of that library.</li>
+<li>A new controller acting as a proxy between Odoo and CMIS to avoid to allow CORS requests and simplify the deployment.
+This functionality is under development see <a class="reference external" href="https://github.com/acsone/alfodoo/pull/4">https://github.com/acsone/alfodoo/pull/4</a></li>
 </ul>
 </div>
 
@@ -176,7 +181,7 @@
     </p>
     <p>
         &copy; Copyright 2016,  ACSONE SA/NV.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.<br/>
     </p>
   </div>
 </footer>

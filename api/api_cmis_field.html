@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CMIS Field &#8212; Web CMIS Viewer  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/sandstone/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alfodoo.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Web CMIS Viewer  documentation" href="../index.html" />
+    <link rel="prev" title="Code Overview" href="../guides/code_overview.html" />
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Alfodoo</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+  
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../project/contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/changes.html">Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/roadmap.html">Roadmap</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/install.html">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/install.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/install.html#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/install.html#launch-odoo">Launch Odoo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/code_overview.html">Code Overview</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CMIS Field</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">CMIS Field</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+
+            
+              
+                
+  <li>
+    <a href="../guides/code_overview.html" title="Previous Chapter: Code Overview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Code Overview</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="cmis-field">
+<h1>CMIS Field<a class="headerlink" href="#cmis-field" title="Permalink to this headline">¶</a></h1>
+<p>This is the API documentation for new field defined by the addob <em>cmis_field</em>.</p>
+<p>These classes are not intended for use by module developers.</p>
+<span class="target" id="module-cmis_field.fields.cmis_folder"></span><dl class="attribute">
+<dt id="cmis_field.fields.cmis_folder.CmisFolder">
+<code class="descclassname">cmis_field.fields.cmis_folder.</code><code class="descname">CmisFolder</code><a class="reference internal" href="../_modules/cmis_field/fields/cmis_folder.html#CmisFolder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cmis_field.fields.cmis_folder.CmisFolder" title="Permalink to this definition">¶</a></dt>
+<dd><p>A reference to a cmis:folder. (cmis:objectId)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>backend_name</strong> &#8211; The attribute <code class="docutils literal"><span class="pre">backend_name</span></code> is mandatory</li>
+<li><strong>allow_create</strong> &#8211; Allow create from UI (by default True)</li>
+<li><strong>allow_delete</strong> &#8211; Allow delete from UI (by default False)</li>
+<li><strong>create_method</strong> &#8211; name of a method that create the field into the
+CMIS repository. The method must assign the field on all records of the
+invoked recordset. The method is called with the field definition
+instance and the bakend as paramaters
+(optional)</li>
+<li><strong>create_parent_get</strong> &#8211; name of a method that return the cmis:objectId of
+the folder to use as parent. The method is called with the field
+definition instance and the bakend as paramaters.
+(optional: by default the folder is
+created  as child of backend.initial_directory_write + &#8216;/&#8217; model._name)</li>
+<li><strong>create_name_get</strong> &#8211; name of a method that return the name of the
+folder to create into the CMIS repository. The method is called with
+the field definition instance and the bakend as paramaters.
+(optional: by default instance.name_get)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>a dictionay with an entry for each record of the invoked
+recordset with the following structure</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="s1">&#39;cmis:objectId&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>a dictionay with an entry for each record of the invoked
+recordset with the following structure</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Parem create_properties_get:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first">name of a method that return a dictionary of
+CMIS properties ro use to create the folder. The method is called
+with the field definition instance and the bakend as paramaters
+(optional: default empty)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><p>a dictionay with an entry for each record of the invoked
+recordset with the following structure</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">record</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;cmis:xxx&#39;</span><span class="p">:</span> <span class="s1">&#39;val1&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">}}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/api/api_cmis_field.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016,  ACSONE SA/NV.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

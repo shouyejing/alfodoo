@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Install &mdash; Web CMIS Viewer  documentation</title>
+    <title>Install &#8212; Web CMIS Viewer  documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -81,9 +81,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launch-odoo">Launch Odoo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="code_overview.html">Code Overview</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/api_cmis_field.html">CMIS Field</a></li>
 </ul>
 </ul>
 </li>
@@ -100,6 +104,7 @@
 <li><a class="reference internal" href="#">Install</a><ul>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#enable-cors-in-alfresco-5-x">Enable CORS in Alfresco 5.x</a></li>
+<li><a class="reference internal" href="#launch-odoo">Launch Odoo</a></li>
 </ul>
 </li>
 </ul>
@@ -150,33 +155,27 @@
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>The Alfodoo framework requires the following:</p>
 <ul>
-<li><p class="first">The Odoo <strong>cmis</strong> addon: The Odoo  cmis addon provides the bases for Odoo
+<li><p class="first">The Odoo <strong>cmis</strong> addon: The Odoo <em>cmis</em> addon provides the minimal foundation for Odoo
 modules implementing different integration scenario with a CMIS server. It allows
-you to configure a CMIS backend in Odoo and provides mixins models to inherit
-to add to Odoo objects the abilities to be linked/stored into a CMIS Backend.
-At the time of writing <em>Alfodoo</em> only supports the branch <em>9.0-cmis-enhanced</em>
-available into the <a class="reference external" href="https://github.com/acsone/connector-cmis/tree/9.0-cmis-enhanced">fork of ACSONE</a> of the OCA&#8217;s <a class="reference external" href="https://github.com/OCA/connector-cmis">connector-cmis</a> repository and
-currently under <a class="reference external" href="https://github.com/OCA/connector-cmis/pull/15">review</a>.</p>
+you to configure a CMIS backend.
+At the time of writing <em>Alfodoo</em> only supports the branch <em>9.0-cmis-from-8.0</em>
+available into the <a class="reference external" href="https://github.com/acsone/connector-cmis/tree/9.0-cmis-from-8.0">fork of ACSONE</a> of the OCA&#8217;s <a class="reference external" href="https://github.com/OCA/connector-cmis">connector-cmis</a> repository and
+currently under <a class="reference external" href="https://github.com/OCA/connector-cmis/pull/16">review</a>.</p>
 </li>
 <li><p class="first"><a class="reference external" href="http://chemistry.apache.org/python/cmislib.html">cmislib</a>  the Apache Chemistry CMIS client library for Python: To be compliant
 with the latest version of CMIS (1.1), the connector use the latest version of the
 python cmislib library not yet released at this stage. The lib can be installed with:</p>
 <blockquote>
-<div><div class="highlight-shell"><div class="highlight"><pre><span></span>pip install git+ssh://git@github.com/lmignon/python-cmislib.git@6.0.dev#egg<span class="o">=</span>cmislib
+<div><div class="highlight-shell"><div class="highlight"><pre><span></span>pip install git+ssh://git@github.com/apache/chemistry-cmislib.git@trunk#egg<span class="o">=</span>cmislib
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p class="first">If you plan to use the viewer extension for Alfresco <strong>&#8216;web_cmis_viewer_alf&#8217;</strong>
-you also need the <strong>cmis_alf</strong> addon. As for the <strong>cmis</strong> addon, this one is
-available into a <a class="reference external" href="https://github.com/acsone/connector-cmis/tree/9.0-cmis-alf">dedicated branch of the fork of ACSONE</a> of the OCA&#8217;s
-<a class="reference external" href="https://github.com/OCA/connector-cmis">connector-cmis</a> repository</p>
 </li>
 </ul>
 </div>
 <div class="section" id="enable-cors-in-alfresco-5-x">
 <h2>Enable CORS in Alfresco 5.x<a class="headerlink" href="#enable-cors-in-alfresco-5-x" title="Permalink to this headline">¶</a></h2>
-<p>The CMIS Viewer widget will be loaded from a different web server than the Alfresco
+<p>The CmisFolder widget will be loaded from a different web server than the Alfresco
 Platform is running on. So we need to tell the Alfresco server that any request that
 comes in from this custom web client should be allowed access to the Content Repository.
 This is done by enabling CORS.</p>
@@ -227,6 +226,16 @@ used by the web client.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="launch-odoo">
+<h2>Launch Odoo<a class="headerlink" href="#launch-odoo" title="Permalink to this headline">¶</a></h2>
+<p>The <em>cmis_field</em> addon defines a new field and a specific web controller providing
+some functionalities to the web. In order to get the new field description registered
+at the early stage in the startup process of the Odoo server and to register the controller
+you must start Odoo with:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>--load<span class="o">=</span>web,web_gantt,cmis_field,...
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -249,7 +258,7 @@ used by the web client.</p>
     </p>
     <p>
         &copy; Copyright 2016,  ACSONE SA/NV.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.<br/>
     </p>
   </div>
 </footer>
