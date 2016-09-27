@@ -151,10 +151,10 @@
       
   <div class="section" id="alfodoo">
 <h1>Alfodoo<a class="headerlink" href="#alfodoo" title="Permalink to this headline">¶</a></h1>
-<p>Alfodoo is a set of <a class="reference external" href="https://github.com/acsone/alfodoo">addons</a> to seamless integrate an external Document
-Management System and <a class="reference external" href="http://www.odoo.com">Odoo</a>.</p>
+<p>Alfodoo is a set of <a class="reference external" href="https://github.com/acsone/alfodoo">addons</a> to seamlessly integrate an external Document
+Management System with <a class="reference external" href="http://www.odoo.com">Odoo</a>.</p>
 <p>Alfodoo provides a new kind of field <em>CmisFolder</em> and its powerful widget <em>FieldCmisFolder</em>.
-Alfodoo is a set of addons for displaying and managing content from a CMIS container linked to an Odoo model.</p>
+Alfodoo is a set of addons to display and manage content from a CMIS container linked to an Odoo model.</p>
 <p>The Odoo widget has a modular and generic core providing functionality based
 on the CMIS V1.1 protocol. This core can be extended by additional modules
 in order to propose additional features or customizations proper to a specific
@@ -173,7 +173,7 @@ a seamless integration.</p>
 <ul class="simple">
 <li><strong>100% Open Source</strong> (<a class="reference external" href="http://www.gnu.org/licenses/agpl-3.0.html">AGPL version 3</a>): the full <a class="reference external" href="https://github.com/acsone/alfodoo">source code is available
 on GitHub</a></li>
-<li>Full responsive HTML Widget that lets you view and managed content from a
+<li>Full responsive HTML Widget that enables you to view and manage content from a
 <cite>cmis:folder</cite>.</li>
 <li>...</li>
 <li>See a <a class="reference internal" href="guides/code_overview.html#code-overview"><span class="std std-ref">Code Overview</span></a> with examples of code</li>
@@ -181,11 +181,11 @@ on GitHub</a></li>
 </div>
 <div class="section" id="overview-manage-the-documents-in-odoo">
 <h2>Overview: Manage the documents in Odoo<a class="headerlink" href="#overview-manage-the-documents-in-odoo" title="Permalink to this headline">¶</a></h2>
-<p>Visually the main part of the functionality is accessed through a &#8220;Document tab&#8221; configurable on each Odoo model providing a &#8220;real-time&#8221; view on the Alfresco content.</p>
-<p>From the user point of view, the Document tab gives a direct access to the items (documents lists, sub-folders, …) linked to the Odoo object and contained in the linked Alfresco folder.</p>
-<p>The first action is to let the user creates manually  (means &#8220;only when needed&#8221;) the linked folder in Alfresco</p>
+<p>Visually, the main part of the functionality is accessed through a &#8220;Documents tab&#8221; configurable on each Odoo model providing a &#8220;real-time&#8221; view on the Alfresco content.</p>
+<p>From the user&#8217;s point of view, the Documents tab gives a direct access to the items (documents lists, sub-folders, …) linked to the Odoo object and contained in the linked Alfresco folder.</p>
+<p>The first action is to let the user create manually  (means &#8220;only when needed&#8221;) the linked folder in Alfresco</p>
 <img alt="_images/cmis_crm_claim_empty.png" src="_images/cmis_crm_claim_empty.png" />
-<p>Then the Document tab shows a global menu providing the following functionality:</p>
+<p>Then the Documents tab shows a global menu providing the following functionality:</p>
 <table class="table">
   <tr>
       <td> <span class="btn-odoo glyphicon glyphicon-refresh" aria-hidden="true"></span></td><td><strong>Refresh content table:</strong> This option refreshes the folder content</td>
@@ -194,7 +194,7 @@ on GitHub</a></li>
       <td> <span class="btn-odoo glyphicon glyphicon-folder-close" aria-hidden="true"></span></td><td><strong>Create folder:</strong> A (sub-)folder is created in the current folder. The user gives a name for the folder and selects "Create"</td>
   </tr>
   <tr>
-      <td> <span class="btn-odoo glyphicon glyphicon-file" aria-hidden="true"></span></td><td><strong>Create document:</strong> Upload a document in the current folder. The user selects a file and click on "Create" to upload the document</td>
+      <td> <span class="btn-odoo glyphicon glyphicon-file" aria-hidden="true"></span></td><td><strong>Create document:</strong> Upload a document in the current folder. The user selects a file and clicks on "Create" to upload the document</td>
   </tr>
   <tr>
       <td> <div class="btn-odoo alf-ico"  aria-hidden="true"></div></span></td><td><strong>Show in Alfresco:</strong> This option opens Alfresco Share and shows the folder details page</td>
@@ -207,7 +207,7 @@ on GitHub</a></li>
 <li>The item name</li>
 <li>The item description</li>
 <li>Last Modified date</li>
-<li>A contextual menu: the options list for the a folder item or for a document item</li>
+<li>A contextual menu: the options list for a folder item or for a document item</li>
 </ul>
 <img alt="_images/cmis_crm_claim_doc_details.png" src="_images/cmis_crm_claim_doc_details.png" />
 <p>For a &#8220;Document&#8221; item, the following options are available:</p>
@@ -244,15 +244,8 @@ on GitHub</a></li>
 <div class="section" id="project">
 <h2>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h2>
 <p>The Alfodoo project has the objective to provide a collection of &#8216;addons&#8217; in order to integrate the odoo platform with a Document Management System supporting the CMIS V1.1 protocol.</p>
-<p>Currently, the project proposes integration between Odoo and the open-source ECM platform Alfresco.</p>
+<p>Currently, the project proposes an integration between Odoo and the open-source ECM platform Alfresco.</p>
 <p>The aim is to offer to the odoo users a transparent and easy access to the documents stored in the appropriate location in Alfresco.</p>
-<p>Alfresco Enterprise Content Management System (from version 4.2) is supported.</p>
-<p>The code is structured in two parts:</p>
-<ul class="simple">
-<li>pure CMIS 1.1 compliant modules (cmis_field, cmis_web)</li>
-<li>Alfresco specific extension modules (cmis_alf, cmis_web_alf).</li>
-</ul>
-<p>It is therefore possible in principle to easily integrate Other CMIS compliants content management systems such as Nuxeo, Documentum, etc. This has not been tested yet.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="project/contribute.html">Contribute</a></li>
